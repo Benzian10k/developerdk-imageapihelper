@@ -1,0 +1,14 @@
+{
+  "name": "developerdk-imageapihelper",
+  "version": "1.0.0",
+  "description": "An imageapi helper",
+  "main": "imagesapi.js",
+  "scripts": {
+    "test": "node ."
+  },
+  "author": "developerdk",
+  "license": "ISC"
+  "dependencies": {
+    "superagent": "^6.1.0"
+  }
+}
