@@ -2,9 +2,9 @@
 const { checkupdate } = require('./functioncheckupdate');
 /*class api*/
 class api {
-    constructor() {
-        this.apilist = [];
-    }
+	constructor() {
+		this.apilist = [];
+	}
 }
 /**/
 /*checkupdate*/
