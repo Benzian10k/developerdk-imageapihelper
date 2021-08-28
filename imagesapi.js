@@ -1,7 +1,7 @@
 /*random api helper*/
 const {
 	checkupdate
-} = require('./function');
+} = require('./functioncheckupdate');
 /*class api*/
 class api {
 	constructor() {}
