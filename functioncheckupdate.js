@@ -15,8 +15,8 @@ async function checkupdate() {
 			'\x1b[32m' + '---------------------------------------------------'
 		);
 		console.log(
-			'\x1b[32m' +
-				'| @ developerdk-imageapi                        - [] X |'
+			`\x1b[32m` +
+				`| @ ${packageData.name}                        - [] X |`
 		);
 		console.log(
 			'\x1b[32m' + '---------------------------------------------------'
@@ -35,8 +35,8 @@ async function checkupdate() {
 				}                |`
 		);
 		console.log(
-			'\x1b[36m' +
-				'|        Run "npm i developerdk-imageapi@latest"       |'
+			`\x1b[36m` +
+				`|        Run "npm i ${packageData.name}@latest"       |`
 		);
 		console.log(
 			'\x1b[36m' + '|                    to update!                   |'
