@@ -7,4 +7,4 @@ package.json
 .npmignore
 .gitignore
 .gitattributes
-package-lock.json
+/package-lock.json
