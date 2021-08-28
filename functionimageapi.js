@@ -39,10 +39,12 @@ async function randomimage({ query: type, res: app, host: host }) {
 	await require('node-fetch')(
 		`https://raw.githubusercontent.com/developerdk1973/developerdk-imageapiconfig/main/imageconfig.json`
 	)
-		.then(i => i.json())
-		.then(j => {
+		.then(function(u) {
+			return u.json();
+		})
+		.then(function(json) {
 			app.get('/imageapi/config.json', (req, res) => {
-				res.json(j);
+				res.json(json);
 			});
 		});
 	const imageapiconfig = await require('node-fetch')(
@@ -82,7 +84,7 @@ async function randomimage({ query: type, res: app, host: host }) {
 		res.status(404).send({ error: '404 not found' });
 	});
 	const randomimageapi = `${host}/image/${type}/${imagetype}.${format}`;
-	console.log(JSON.parse(`{` + '"data":' + '"' + randomimageapi + '"' + `}`));
+	console.log(JSON.parse(`{` + '"url":' + '"' + randomimageapi + '"' + `}`));
 	this.apilist.push(randomimageapi);
 	return randomimageapi;
 }
