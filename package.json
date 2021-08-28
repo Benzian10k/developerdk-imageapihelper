@@ -1,7 +1,7 @@
 {
   "name": "developerdk-imageapihelper",
   "version": "1.0.0",
-  "description": "A most powerfull image api",
+  "description": "An image api helper",
   "main": "imagesapi.js",
   "scripts": {
     "test": "node ."
