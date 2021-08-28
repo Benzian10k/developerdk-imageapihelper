@@ -7,7 +7,7 @@ module.exports = {
 async function checkupdate() {
 	if (!require('node-fetch')) return;
 	const packageData = await require('node-fetch')(
-		`https://registry.npmjs.com/developerdk-imageapi`
+		`https://registry.npmjs.com/${require('./package.json').name}`
 	).then(text => text.json());
 	if (require('./package.json').version !== packageData['dist-tags'].latest) {
 		console.log('\n\n');
@@ -16,7 +16,7 @@ async function checkupdate() {
 		);
 		console.log(
 			`\x1b[32m` +
-				`| @ ${packageData.name}                        - [] X |`
+				`| @ ${require('./package.json').name}                        - [] X |`
 		);
 		console.log(
 			'\x1b[32m' + '---------------------------------------------------'
@@ -36,7 +36,7 @@ async function checkupdate() {
 		);
 		console.log(
 			`\x1b[36m` +
-				`|        Run "npm i ${packageData.name}@latest"       |`
+				`|        Run "npm i ${require('./package.json').name}@latest"       |`
 		);
 		console.log(
 			'\x1b[36m' + '|                    to update!                   |'
