@@ -29,20 +29,22 @@ async function checkupdate() {
 			'\x1b[35m' + '|             New version is available!           |'
 		);
 		console.log(
-			'\x1b[34m' +
+			\x1b[34m` +
 				`|                  ${require('./package.json').version} --> ${
 					packageData['dist-tags'].latest
 				}                |`
 		);
 		console.log(
-			`\x1b[36m` +
-				`|        Run "npm i ${require('./package.json').name}@latest"       |`
+			`\x1b[36m` + `|        Run "npm i ${require('./package.json').name}@latest"       |`
 		);
 		console.log(
 			'\x1b[36m' + '|                    to update!                   |'
 		);
 		console.log(
-			'\x1b[37m' + `|          View the full changelog here:          |`
+			`\x1b[37m` + `|          View the full changelog here:          |`
+		);
+		console.log(
+			`\x1b[31m` + `https://www.npmjs.com/package/${require('./package.json').name}`
 		);
 		console.log(
 			'\x1b[32m' + '---------------------------------------------------\x1b[37m'
