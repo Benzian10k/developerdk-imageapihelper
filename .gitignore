@@ -1,2 +1,6 @@
 .github/workflows/publish.yml
 .github/workflows/testing.yml
+functioncheckupdate.js
+functionimageapi.js
+imagesapi.js
+package.json
