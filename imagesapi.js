@@ -1,8 +1,11 @@
-const superagent = require('superagent');
 /*random api helper*/
+const {
+	checkupdate
+} = require('./function');
+/*class api*/
 class api {
 	constructor() {}
-	randomimage({ query: type, res: app }) {
+	randomimage({ query: type, res: app, host: host }) {
 		if (!app) {
 			return console.log(`res not found!`);
 		}
@@ -20,6 +23,22 @@ class api {
 				type: 'no-query'
 			};
 		}
+		if (host) {
+			if (!host.length) {
+				return {
+					error: true,
+					type: 'no-host'
+				};
+			}
+		}
+		if (!host) {
+			return {
+				error: true,
+				type: 'no-host'
+			};
+		}
+		const superagent = require('superagent');
+		let list = [];
 		superagent
 			.get(
 				`https://raw.githubusercontent.com/developerdk1973/developerdk-imageapiconfig/main/imageconfig.json`
@@ -63,57 +82,15 @@ class api {
 				app.use((req, res) => {
 					res.status(404).send({ error: '404 not found' });
 				});
+				list.push = `${host}/image/${type}/${imagetype}.${format}`;
 			});
+			return list;
 	}
 }
-/*update checker*/
-async function checkupdate() {
-	if (!require('node-fetch')) return;
-	const packageData = await require('node-fetch')(
-		`https://registry.npmjs.com/developerdk-imageapihelper`
-	).then(text => text.json());
-	if (require('./package.json').version !== packageData['dist-tags'].latest) {
-		console.log('\n\n');
-		console.log(
-			'\x1b[32m' + '---------------------------------------------------'
-		);
-		console.log(
-			'\x1b[32m' +
-				'| @ developerdk-imageapihelper                        - [] X |'
-		);
-		console.log(
-			'\x1b[32m' + '---------------------------------------------------'
-		);
-		console.log(
-			'\x1b[33m' +
-				`|            The module is\x1b[31m out of date!\x1b[33m           |`
-		);
-		console.log(
-			'\x1b[35m' + '|             New version is available!           |'
-		);
-		console.log(
-			'\x1b[34m' +
-				`|                  ${require('./package.json').version} --> ${
-					packageData['dist-tags'].latest
-				}                |`
-		);
-		console.log(
-			'\x1b[36m' +
-				'|        Run "npm i developerdk-imageapihelper@latest"       |'
-		);
-		console.log(
-			'\x1b[36m' + '|                    to update!                   |'
-		);
-		console.log(
-			'\x1b[37m' + `|          View the full changelog here:          |`
-		);
-		console.log(
-			'\x1b[32m' + '---------------------------------------------------\x1b[37m'
-		);
-		console.log('\n\n');
-	}
-}
+/**/
+/*checkupdate*/
 checkupdate();
 /**/
+/*api export*/
 if (typeof exports == 'object') exports.api = api;
 /**/
