@@ -4,3 +4,6 @@ functioncheckupdate.js
 functionimageapi.js
 imagesapi.js
 package.json
+.npmignore
+.gitignore
+.gitattributes
