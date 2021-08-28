@@ -36,7 +36,7 @@ async function randomimage({ query: type, res: app, host: host }) {
 			type: 'no-host'
 		};
 	}
-	await require('node-fetch')(
+		await require('node-fetch')(
 		`https://raw.githubusercontent.com/developerdk1973/developerdk-imageapiconfig/main/imageconfig.json`
 	)
 		.then(i => i.json())
