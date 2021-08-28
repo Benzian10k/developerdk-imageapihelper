@@ -3,7 +3,7 @@ module.exports = {
 	checkupdate
 };
 /**/
-/*update checker*/
+/*checkupdate*/
 async function checkupdate() {
 	if (!require('node-fetch')) return;
 	const packageData = await require('node-fetch')(
