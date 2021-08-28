@@ -1,1 +1,5 @@
-
+.github/workflows/publish.yml
+.github/workflows/testing.yml
+.npmignore
+.gitignore
+.gitattributes
