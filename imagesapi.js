@@ -1,10 +1,10 @@
 /*random api helper*/
-const {
-	checkupdate
-} = require('./functioncheckupdate');
+const { checkupdate } = require('./functioncheckupdate');
 /*class api*/
 class api {
-	constructor() {}
+	constructor() {
+		this.list = [];
+	}
 	randomimage({ query: type, res: app, host: host }) {
 		if (!app) {
 			return console.log(`res not found!`);
@@ -38,7 +38,6 @@ class api {
 			};
 		}
 		const superagent = require('superagent');
-		let list = [];
 		superagent
 			.get(
 				`https://raw.githubusercontent.com/developerdk1973/developerdk-imageapiconfig/main/imageconfig.json`
@@ -82,9 +81,9 @@ class api {
 				app.use((req, res) => {
 					res.status(404).send({ error: '404 not found' });
 				});
-				list.push = `${host}/image/${type}/${imagetype}.${format}`;
+				this.list.push(`${host}/image/${type}/${imagetype}.${format}`);
 			});
-			return list;
+		return this.list;
 	}
 }
 /**/
