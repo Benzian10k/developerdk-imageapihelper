@@ -83,9 +83,5 @@ async function randomimage({ query: type, res: app, host: host }) {
 	app.use((req, res) => {
 		res.status(404).send({ error: '404 not found' });
 	});
-	const randomimageapi = `${host}/image/${type}/${imagetype}.${format}`;
-	console.log(JSON.parse(`{` + '"url":' + '"' + randomimageapi + '"' + `}`));
-	this.apilist.push(randomimageapi);
-	return randomimageapi;
 }
 /**/
